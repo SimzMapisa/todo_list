@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
+
 :root{
   /* *** viewport widths *** */
   --mobile-w: 375px;
@@ -34,9 +36,82 @@
 
   /* *** font family *** */
 
-  --font-fam: 'Josefin sans';
+  --font-fam: 'Josefin Sans', sans-serif;
   --weight-med: 400;
   --weight-b: 700;
 }
+
+body{
+  padding: 0;
+  margin: 0;
+  flex-flow: var(--font-fam);
+  box-sizing: border-box;
+}
+
+p{
+  font-size: var(--body-copy-size);
+}
+
+.main{
+  background-color: var(--very-dark-blue);
+  min-height: 100vh;
+}
+
+.wrapper{
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.nav-wrapper{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  padding-top: 120px;
+}
+
+.nav-wrapper h1{
+  color: white;
+  text-transform: uppercase;
+  font-family: var(--font-fam);
+  font-weight: var(--weight-b);
+  letter-spacing: 0.6em;
+  font-size: 3em;
+}
+
+.bg-img{
+  width: 100%;
+  position: absolute;
+  z-index: 0;
+}
+
+.content{
+  position: relative;
+  z-index: 1;
+  padding: 16px;
+  background-color: var(--very-dark-desat-blue);
+  border-radius: 8px;
+}
+
+.content input{
+  width: 100%;
+  height: 40px;
+  padding: 4px 16px;
+  border: none;
+  box-sizing: border-box;
+  background-color: var(--very-dark-desat-blue);
+  color: var(--very-light-gray);
+  font-size: var(--body-copy-size);
+  font-family: var(--font-fam);
+  outline: transparent;
+} 
+
+
+
+
+
+
+
 
 
