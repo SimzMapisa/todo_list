@@ -52,6 +52,15 @@
   user-select: none;
 }
 
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  list-style: none;
+}
+
 body {
   padding: 0 !important;
   margin: 0 !important;
@@ -118,10 +127,10 @@ p {
   padding: 8px 32px;
   background-color: var(--vv-dark-desat-blue);
   font-family: var(--font-fam);
-  font-weight: var(--weight-med);
-  color: var(--very-light-gray);
+  font-weight: var(--weight-b);
+  color: #6c7296;
   font-size: var(--body-copy-size);
-  border-bottom: 2px solid var(--very-dark-grayish-blue);
+  border-bottom: 2px solid #2b2e43;
 }
 
 .icon-btn {
@@ -129,10 +138,15 @@ p {
   border: none;
 }
 
-.todo .drag-icon {
-  width: 30px;
-  color: var(--dark-grayish-blue);
-  cursor: pointer;
+.drag-container {
+  width: 24px;
+  height: 24px;
+}
+
+.drag-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .todo .text-container {
@@ -164,7 +178,19 @@ p {
   z-index: 1;
   background-color: var(--very-dark-desat-blue);
   border-radius: 8px;
+  max-height: 500px;
   overflow: hidden;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+}
+
+.content::-webkit-scrollbar {
+  display: none;
 }
 
 .form-wrapper input[type='text'] {
@@ -190,6 +216,9 @@ p {
   justify-content: space-between;
   color: var(--dark-grayish-blue);
   font-size: var(--body-copy-size);
+  position: sticky;
+  bottom: 0px;
+  box-shadow: 2px 2px 10px 10px rgba(0, 0, 0, 0.084);
 }
 
 .bottom-nav h4 {
