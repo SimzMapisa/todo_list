@@ -1,8 +1,13 @@
 import { useContext } from 'react';
 import { TodoContext } from '../contexts/Todos';
+import { ContextType } from '../helper/types';
+import React from 'react';
+
+// Import the drag icon
+import drag from '../assets/images/drag.svg';
 
 const Todo = ({ text, id }) => {
-	const { removeTodo } = useContext(TodoContext);
+	const { removeTodo, toggleComplete } = useContext(TodoContext) as ContextType;
 
 	const handleDelete = () => {
 		removeTodo(id);
@@ -10,24 +15,11 @@ const Todo = ({ text, id }) => {
 	return (
 		<div className='todo'>
 			<div className='drag-container'>
-				<svg
-					xmlns='http://www.w3.org/2000/svg'
-					fill='none'
-					viewBox='0 0 24 24'
-					strokeWidth={2}
-					stroke='currentColor'
-					className='drag-icon'
-				>
-					<path
-						strokeLinecap='round'
-						strokeLinejoin='round'
-						d='M8.25 15L12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9'
-					/>
-				</svg>
+				<img src={drag} alt='' />
 			</div>
 
 			<div className='text-container'>
-				<h4>{text}</h4>
+				<h4 className=''>{text}</h4>
 			</div>
 
 			<div className='del-edit'>
@@ -37,8 +29,7 @@ const Todo = ({ text, id }) => {
 					viewBox='0 0 24 24'
 					strokeWidth={1.5}
 					stroke='currentColor'
-					className='edit-icon'
-				>
+					className='edit-icon'>
 					<path
 						strokeLinecap='round'
 						strokeLinejoin='round'
@@ -53,8 +44,7 @@ const Todo = ({ text, id }) => {
 						viewBox='0 0 24 24'
 						strokeWidth={1.5}
 						stroke='currentColor'
-						className='trash-icon'
-					>
+						className='trash-icon'>
 						<path
 							strokeLinecap='round'
 							strokeLinejoin='round'

@@ -1,11 +1,25 @@
 import { useState, useContext } from 'react';
 import { TodoContext } from '../contexts/Todos';
 import { v4 as uuidv4 } from 'uuid';
+import React from 'react';
 
-const InputBox = () => {
+interface Todo {
+	id: string;
+	text: string;
+	completed: boolean;
+}
+
+interface ContextType {
+	todos: Todo[];
+	toggleComplete: (id: string) => void;
+	removeTodo: (id: string) => void;
+	addTodo: (todo: Todo) => void;
+}
+
+const InputBox = ({ className }) => {
+	const { addTodo } = useContext(TodoContext) as ContextType;
 	const [inputVal, setInputval] = useState('');
-	const { addTodo } = useContext(TodoContext);
-	const handleChange = (e) => {
+	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		setInputval(e.target.value);
 	};
 
