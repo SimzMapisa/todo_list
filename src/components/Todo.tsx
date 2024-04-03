@@ -6,20 +6,24 @@ import React from 'react';
 // Import the drag icon
 import drag from '../assets/images/drag.svg';
 
-const Todo = ({ text, id }) => {
+const Todo = ({ ...props }) => {
 	const { removeTodo, toggleComplete } = useContext(TodoContext) as ContextType;
 
 	const handleDelete = () => {
-		removeTodo(id);
+		removeTodo(props.id);
+	};
+
+	const handleToggle = () => {
+		toggleComplete(props.id);
 	};
 	return (
 		<div className='todo'>
-			<div className='drag-container'>
+			<div className='drag-container' onPointerDown={props.onPointerdown}>
 				<img src={drag} alt='' />
 			</div>
 
-			<div className='text-container'>
-				<h4 className=''>{text}</h4>
+			<div className='text-container' onClick={handleToggle}>
+				<h4 className={props.complete ? 'line-through' : ''}>{props.text}</h4>
 			</div>
 
 			<div className='del-edit'>
