@@ -18,7 +18,9 @@ export const ContextProvider = ({ children }) => {
 	const [todos, setTodos] = useState<TodoType[]>(initialTodos);
 
 	// Get the completed todos from the local storage
-	const savedCompleted = todos.filter((todo) => todo.completed === true);
+	const getCompletedTodos = () => {
+		return todos.filter((todo) => todo.completed);
+	};
 
 	// Save todos in the local storage
 	const saveTodos = (todos: TodoType[]) => {
@@ -57,7 +59,14 @@ export const ContextProvider = ({ children }) => {
 
 	return (
 		<TodoContext.Provider
-			value={{ todos, toggleComplete, removeTodo, addTodo, updateTodos }}>
+			value={{
+				todos,
+				toggleComplete,
+				removeTodo,
+				addTodo,
+				updateTodos,
+				getCompletedTodos,
+			}}>
 			{children}
 		</TodoContext.Provider>
 	);
