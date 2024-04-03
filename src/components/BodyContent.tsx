@@ -3,27 +3,29 @@ import BottomNav from './BottomNav';
 import InputBox from './InputBox';
 import Todo from './Todo';
 import { TodoContext } from '../contexts/Todos';
-import { ContextType } from '../helper/types';
+import { ContextType, Todo as TodoType } from '../helper/types';
 
 import React from 'react';
 import { Reorder } from 'framer-motion';
 
-const BodyContent = () => {
-	const { todos, updateTodos } = useContext(TodoContext) as ContextType;
-	const [items, setItems] = useState(todos);
+const BodyContent = ({ todos }) => {
+	const [items, setItems] = useState(todos || []);
+
+	const { updateTodos } = useContext(TodoContext) as ContextType;
 
 	// create a useEffect to update the items when the todos change
 	useEffect(() => {
 		setItems(todos);
 	}, [todos]);
 
+	console.log(items);
+
 	return (
 		<div className='main-wrapper'>
-			<InputBox className='drag' />
 			<div className='content'>
 				<Reorder.Group
 					values={items}
-					onReorder={(items) => {
+					onReorder={(items: TodoType[]) => {
 						setItems(items);
 						updateTodos(items);
 					}}>
@@ -36,12 +38,10 @@ const BodyContent = () => {
 									id={item.id}
 									complete={item.completed}
 								/>
-								;
 							</Reorder.Item>
 						);
 					})}
 				</Reorder.Group>
-				<BottomNav />
 			</div>
 		</div>
 	);
