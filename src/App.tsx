@@ -1,6 +1,11 @@
+import React from 'react';
 import Navbar from './components/Navbar';
 import BodyContent from './components/BodyContent';
 import { ContextProvider } from './contexts/Todos';
+import AllTodos from './components/AllTodos';
+import CompletedTodos from './components/CompletedTodos';
+import InputBox from './components/InputBox';
+import BottomNav from './components/BottomNav';
 
 function App() {
 	return (
@@ -13,7 +18,10 @@ function App() {
 			<div className='wrapper'>
 				<ContextProvider>
 					<Navbar />
-					<BodyContent />
+					<InputBox />
+					<AllTodos />
+					<CompletedTodos />
+					<BottomNav />
 				</ContextProvider>
 			</div>
 		</div>
