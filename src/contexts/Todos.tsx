@@ -15,28 +15,31 @@ export const ContextProvider = ({ children }) => {
 	const initialTodos = savedTodos ? JSON.parse(savedTodos) : [];
 
 	// Set the initial state of the todos
-
 	const [todos, setTodos] = useState<TodoType[]>(initialTodos);
 
-	// Save the todos in the local storage
+	// Get the completed todos from the local storage
+	const savedCompleted = todos.filter((todo) => todo.completed === true);
 
+	// Save todos in the local storage
 	const saveTodos = (todos: TodoType[]) => {
 		localStorage.setItem('todos', JSON.stringify(todos));
 	};
 
 	// Save the todos in the local storage every time the todos change
-
 	saveTodos(todos);
 
 	// Function to add todos
 	const addTodo: AddTodo = (newTodo: TodoType) => {
-		if (!newTodo.text) return;
-		setTodos([newTodo, ...todos]);
+		newTodo.text ? setTodos([newTodo, ...todos]) : null;
 	};
 
 	// Function to delete a todo item
 	const removeTodo = (id: string) => {
 		setTodos(todos.filter((todo) => todo.id !== id));
+	};
+
+	const updateTodos = (newTodos: TodoType[]) => {
+		setTodos(newTodos);
 	};
 
 	// Function to toggle complete todo
@@ -47,7 +50,6 @@ export const ContextProvider = ({ children }) => {
 				if (todo.id === id) {
 					return { ...todo, completed: !todo.completed };
 				}
-				console.log(todo.completed);
 				return todo;
 			})
 		);
@@ -55,7 +57,7 @@ export const ContextProvider = ({ children }) => {
 
 	return (
 		<TodoContext.Provider
-			value={{ todos, toggleComplete, removeTodo, addTodo }}>
+			value={{ todos, toggleComplete, removeTodo, addTodo, updateTodos }}>
 			{children}
 		</TodoContext.Provider>
 	);
