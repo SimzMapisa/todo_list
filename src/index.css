@@ -67,6 +67,11 @@ body {
   box-sizing: border-box !important;
 }
 
+.line-through {
+  text-decoration: line-through;
+  color: rgb(67, 67, 67);
+}
+
 p {
   font-size: var(--body-copy-size);
 }
@@ -124,7 +129,7 @@ p {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 8px 32px;
+  padding: 0px 32px;
   background-color: var(--vv-dark-desat-blue);
   font-family: var(--font-fam);
   font-weight: var(--weight-b);
