@@ -16,7 +16,7 @@ interface ContextType {
 	addTodo: (todo: Todo) => void;
 }
 
-const InputBox = ({ className }) => {
+const InputBox = () => {
 	const { addTodo } = useContext(TodoContext) as ContextType;
 	const [inputVal, setInputval] = useState('');
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
