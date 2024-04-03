@@ -11,6 +11,7 @@ export interface ContextType {
 	removeTodo: (id: string) => void;
 	addTodo: (todo: Todo) => void;
 	updateTodos: (todos: Todo[]) => void;
+	getCompletedTodos: () => Todo[];
 }
 
 export interface AddTodo {
