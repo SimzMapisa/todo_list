@@ -10,6 +10,7 @@ export interface ContextType {
 	toggleComplete: (id: string) => void;
 	removeTodo: (id: string) => void;
 	addTodo: (todo: Todo) => void;
+	updateTodos: (todos: Todo[]) => void;
 }
 
 export interface AddTodo {
