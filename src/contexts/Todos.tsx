@@ -22,6 +22,12 @@ export const ContextProvider = ({ children }) => {
 		return todos.filter((todo) => todo.completed);
 	};
 
+	const getActiveTodos = () => {
+		return todos.filter((todo) => todo.completed === false);
+	};
+
+	console.log(getActiveTodos());
+
 	// Save todos in the local storage
 	const saveTodos = (todos: TodoType[]) => {
 		localStorage.setItem('todos', JSON.stringify(todos));
@@ -66,6 +72,7 @@ export const ContextProvider = ({ children }) => {
 				addTodo,
 				updateTodos,
 				getCompletedTodos,
+				getActiveTodos,
 			}}>
 			{children}
 		</TodoContext.Provider>
