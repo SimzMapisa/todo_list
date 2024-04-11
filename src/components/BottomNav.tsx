@@ -1,17 +1,20 @@
 import React, { useContext } from 'react';
 import { TodoContext } from '../contexts/Todos';
 import { ContextType } from '../helper/types';
+import { Link } from 'react-router-dom';
 
 const BottomNav = () => {
-	const { todos } = useContext(TodoContext) as ContextType;
+	const { todos, getCompletedTodos } = useContext(TodoContext) as ContextType;
+	const completedTodos = getCompletedTodos();
+
 	return (
 		<>
 			<div className='bottom-nav'>
-				<h4>{todos.length} items Left</h4>
+				<h4>{todos.length - completedTodos.length} items Left</h4>
 				<ul>
-					<li>All</li>
-					<li>Active</li>
-					<li>Completed</li>
+					<Link to='/'>All</Link>
+					<Link to='/active'>Active</Link>
+					<Link to='/completed'>Completed</Link>
 				</ul>
 
 				<button>Clear Completed</button>
