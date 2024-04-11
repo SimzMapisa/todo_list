@@ -13,6 +13,7 @@ export interface ContextType {
 	updateTodos: (todos: Todo[]) => void;
 	getCompletedTodos: () => Todo[];
 	getActiveTodos: () => Todo[];
+	clearCompleted: () => void;
 }
 
 export interface AddTodo {
