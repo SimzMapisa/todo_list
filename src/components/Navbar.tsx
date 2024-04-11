@@ -1,4 +1,3 @@
-import sunIcon from '../assets/images/icon-sun.svg';
 import React from 'react';
 
 const Navbar = () => {
@@ -9,7 +8,7 @@ const Navbar = () => {
 			</div>
 			<div>
 				<span className='icon-wrapper'>
-					<img src={sunIcon} />
+					<img src={process.env.PUBLIC_URL! + '/images/bg-desktop-dark.jpg'} />
 				</span>
 			</div>
 		</div>
