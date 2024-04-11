@@ -4,7 +4,9 @@ import { ContextType } from '../helper/types';
 import { Link } from 'react-router-dom';
 
 const BottomNav = () => {
-	const { todos, getCompletedTodos } = useContext(TodoContext) as ContextType;
+	const { todos, getCompletedTodos, clearCompleted } = useContext(
+		TodoContext
+	) as ContextType;
 	const completedTodos = getCompletedTodos();
 
 	return (
@@ -17,7 +19,7 @@ const BottomNav = () => {
 					<Link to='/completed'>Completed</Link>
 				</ul>
 
-				<button>Clear Completed</button>
+				<button onClick={clearCompleted}>Clear Completed</button>
 			</div>
 		</>
 	);

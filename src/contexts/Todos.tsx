@@ -78,6 +78,7 @@ export const ContextProvider = ({ children }) => {
 				updateTodos,
 				getCompletedTodos,
 				getActiveTodos,
+				clearCompleted,
 			}}>
 			{children}
 		</TodoContext.Provider>
