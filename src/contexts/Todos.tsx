@@ -50,6 +50,11 @@ export const ContextProvider = ({ children }) => {
 		setTodos(newTodos);
 	};
 
+	// clear completed todos
+	const clearCompleted = () => {
+		setTodos(todos.filter((todo) => todo.completed === false));
+	};
+
 	// Function to toggle complete todo
 
 	const toggleComplete = (id: string) => {
