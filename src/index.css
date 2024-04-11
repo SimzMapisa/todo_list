@@ -99,11 +99,12 @@ p {
   justify-content: space-between;
   align-items: center;
   position: relative;
-  z-index: 1;
+  z-index: 10;
   padding-top: 120px;
 }
 
 .nav-wrapper h1 {
+  position: relative;
   color: white;
   text-transform: uppercase;
   font-family: var(--font-fam);
@@ -123,6 +124,10 @@ p {
   border-radius: 8px;
   padding: 16px;
   margin-bottom: 40px;
+  position: sticky;
+  z-index: 10;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .todo {
@@ -234,9 +239,11 @@ p {
   display: flex;
 }
 
-.bottom-nav li {
+.bottom-nav a {
   list-style: none;
   font-size: var(--body-copy-size);
+  color: var(--dark-grayish-blue);
+  text-decoration: none;
   padding: 0 8px;
 }
 
