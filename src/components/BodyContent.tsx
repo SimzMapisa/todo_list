@@ -1,6 +1,4 @@
 import { useContext, useState, useEffect } from 'react';
-import BottomNav from './BottomNav';
-import InputBox from './InputBox';
 import Todo from './Todo';
 import { TodoContext } from '../contexts/Todos';
 import { ContextType, Todo as TodoType } from '../helper/types';
@@ -8,7 +6,7 @@ import { ContextType, Todo as TodoType } from '../helper/types';
 import React from 'react';
 import { Reorder } from 'framer-motion';
 
-const BodyContent = ({ todos }) => {
+const BodyContent = ({ todos }: { todos: TodoType[] }) => {
 	const [items, setItems] = useState(todos || []);
 
 	const { updateTodos } = useContext(TodoContext) as ContextType;

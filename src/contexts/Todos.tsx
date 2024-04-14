@@ -7,7 +7,11 @@ import { Todo as TodoType, ContextType, AddTodo } from '../helper/types';
 
 export const TodoContext = createContext<ContextType | undefined>(undefined);
 
-export const ContextProvider = ({ children }) => {
+export const ContextProvider = ({
+	children,
+}: {
+	children: React.ReactNode;
+}) => {
 	// Get the todos from the local storage
 	const savedTodos = localStorage.getItem('todos');
 

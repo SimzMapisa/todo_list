@@ -1,4 +1,5 @@
 import React from 'react';
+import iconSun from '../assets/images/icon-sun.svg';
 
 const Navbar = () => {
 	return (
@@ -8,7 +9,7 @@ const Navbar = () => {
 			</div>
 			<div>
 				<span className='icon-wrapper'>
-					<img src={process.env.PUBLIC_URL! + '/images/bg-desktop-dark.jpg'} />
+					<img src={iconSun} alt='bg' />
 				</span>
 			</div>
 		</div>

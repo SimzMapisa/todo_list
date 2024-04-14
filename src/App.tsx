@@ -8,15 +8,12 @@ import CompletedTodos from './components/CompletedTodos';
 import InputBox from './components/InputBox';
 import BottomNav from './components/BottomNav';
 import ActiveTodos from './components/ActiveTodos';
+import bgDark from '../src/assets/images/bg-desktop-dark.jpg';
 
 function App() {
 	return (
 		<div className='main'>
-			<img
-				src='../src/assets/images/bg-desktop-dark.jpg'
-				alt=''
-				className='bg-img'
-			/>
+			<img src={bgDark} alt='' className='bg-img' />
 			<div className='wrapper'>
 				<ContextProvider>
 					<Router>

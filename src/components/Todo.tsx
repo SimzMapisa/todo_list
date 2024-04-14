@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import { TodoContext } from '../contexts/Todos';
 import { ContextType } from '../helper/types';
 import React from 'react';
+import drag from '../assets/images/drag.svg';
 
 const Todo = ({ ...props }) => {
 	const { removeTodo, toggleComplete } = useContext(TodoContext) as ContextType;
@@ -16,7 +17,7 @@ const Todo = ({ ...props }) => {
 	return (
 		<div className='todo'>
 			<div className='drag-container' onPointerDown={props.onPointerdown}>
-				<img src={process.env.PUBLIC_URL! + '/images/drag.svg'} alt='' />
+				<img src={drag} />
 			</div>
 
 			<div className='text-container' onClick={handleToggle}>
